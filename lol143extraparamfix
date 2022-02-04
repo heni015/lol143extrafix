@@ -1,0 +1,18 @@
+Just replace end of code in dual ton and eth minere
+:W10
+"%MyVariable%" --algo ETHASH --pool !POOL! --user !WALLET! --dualmode TONDUAL --dualpool !TONPOOL! --dualuser !TONWALLET! --watchdog exit !EXTRAPARAMETERS!
+if %ERRORLEVEL% == 42 (
+	timeout 10
+	goto W10
+)
+goto END
+
+:OtherW
+"%MyVariable%" --algo ETHASH --pool !POOL! --user !WALLET! --dualmode TONDUAL --dualpool !TONPOOL! --dualuser !TONWALLET! --watchdog exit !EXTRAPARAMETERS! --nocolor
+if %ERRORLEVEL% == 42 (
+	timeout 10
+	goto OtherW
+)
+
+:END
+pause
